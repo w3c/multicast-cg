@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Multicast Community Group Charter
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="//www.w3.org/StyleSheets/TR/base">
+    <style>
+      body {
+        max-width: 60em;
+        margin: auto;;
+      }
+      *:target {
+        background-color: yellow;
+      }
+      li {
+        margin-bottom: 9pt;
+      }
+      .note {
+        background-color: yellow;
+        padding: 10px;
+      }
+      .remove {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      [DRAFT] Multicast Community Group Charter
+    </h1>
+    <!-- template: https://w3c.github.io/cg-charter/CGCharter.html -->
+    <p>
+      This Charter is work in progress. To submit feedback,
+      please use <span class="remove">{TBD:GitHub repository URL}</span> Issues
+      where Charter is being developed.
+    </p>
+    <ul>
+      <li>This Charter: <span class="remove"><a href="{TBD: URI}">{TBD: URI}</a></span>
+      </li>
+      <!-- <li>Previous Charter: <span class="remove">{TBD: URI}</span>
+      </li> -->
+      <li>Start Date: 2021-06-22
+      </li>
+      <li>Last Modifed: 2021-06-22
+      </li>
+    </ul>
+    <h2 id="mission">
+      Mission
+    </h2>
+    <p>
+      The mission of the Multicast web community group is to enable multicast
+      IP transport for web traffic to efficiently solve scalability problems
+      in networking and web operations.
+    </p>
+    <h2 id="scope-of-work">
+      Scope of Work
+    </h2>
+    <p>In general, topics related to secure transport using multicast IP and the application-layer signaling to support it are in scope.
+    </p>
+    <p>The CLA is applicable (as described in <a href="#process">the process section</a>) to any work contributing to normative specifications.  This includes in-scope work such as:
+      <ul>
+        <li>Explore and incubate APIs to enable multicast transport on the
+          web (and their test suites), leveraging existing protocols and
+          APIs where possible
+        </li>
+        <li>Define application layer negotiation mechanisms to signal
+          multicast support and communicate necessary parameters
+        </li>
+        <li>Define fallback mechanisms for networks where multicast
+          availability is limited or disabled by the network.
+        </li>
+      </ul>
+    </p>
+    <p>Other work that's in-scope but where the CLA is not expected to directly apply includes activities like:
+      <ul>
+        <li>Identify and refine use cases that can improve network
+          efficiency and user experience through the use of multicast
+        </li>
+        <li>Find working group homes for incubated APIs after incubation
+        </li>
+        <li>Evaluate multicast transport protocols, implementations, and
+          deployment profiles on their performance characteristics and
+          their suitability for web use cases.
+        </li>
+        <li>Liaison statements suggesting refinements and fixes to existing
+          and emerging specifications in the IETF or other standards bodies,
+          especially with regard to security considerations and protocols
+          relevant to web applications for multicast-based transport
+        </li>
+        <li>Evangelize open web and internet standards and APIs that enable
+          the use of multicast with web developers, browser vendors, and
+          network operators
+        </li>
+        <li>Evangelize the scalability benefits of leveraging multicast
+          transport for appropriate use cases and where available.
+        </li>
+      </ul>
+    </p>
+    <h4 id="proprietary">
+      Considerations on Proprietary Protocols
+    </h4>
+    <p>Work on open standards is preferred, but many existing uses of multicast have proprietary implementations, and some of these may be possible to operate on top of some web APIs as they become available.
+    </p>
+    <p>Existing proprietary transport protocols MAY be evaluated and tracked for their performance characteristics and potential to address scalability problems, as long as their usage is consistent with the appropriate security considerations.  For example, evaluating performance characteristics of a proprietary implementation of a video player built on top of a multicast-enabled WebTransport API would not be out of scope for this group--it would be a case study of an example usage of a multicast WebTransport API.
+    </p>
+    <p>Although such case studies may inform the analysis of use cases within the group, examination of such protocols does not imply that the proprietary implementation is subject to the CLA.
+    </p>
+    <p>Proprietary implementations SHOULD NOT be individually evangelized by this group, but lists and reviews that include information about proprietary implementations without unduly highlighting specific vendors MAY be included during evangelization of multicast APIs in general.
+    </p>
+    <h3 id="out-of-scope">
+      Out of Scope
+    </h3>
+    <p>The definition of network protocols for multicast transport or
+    routing is out of scope for this group.  In general, it is expected that
+    protocol definition will be handled in the IETF.  (Note however that
+    liaison statements to appropriate IETF groups or evaluations of how
+    such protocols impact performance or otherwise impact web use cases
+    would be in scope.)
+    </p>
+    <h2 id="deliverables">
+      Deliverables
+    </h2>
+    <h3 id="specifications">
+      Specifications
+    </h3>
+    <h4 id="phase1">
+      Phase 1
+    </h4>
+    <p>The initial priority will focus on a proposal to extend <a href="https://www.w3.org/TR/webtransport/">WebTransport</a> with a multicast receive capability.
+    </p>
+    <p>(Suggested starting point for incubation: early <a href="https://discourse.wicg.io/t/proposal-multicastreceiver-api/3939">Multicast Receive API proposal</a> and <a href="https://github.com/GrumpyOldTroll/chromium_fork">implementation</a>.)
+    </p>
+    <p>This is a low-level API that can be used to incubate the later stages by experimenting with transport protocols implemented inside web apps.
+    </p>
+    <h4 id="phase2">
+      Phase 2
+    </h4>
+    <p>Later work will aim to extend other W3C specifications that may be able to get improved performance by embedding interoperable open standards for multicast transport into various delivery APIs.  Specifications under consideration for this phase will include:
+    <ul>
+      <li><a href="https://www.w3.org/TR/html52/links.html#downloading-resources">HTML's "download" attribute</a>
+      </li>
+      <li><a href="https://fetch.spec.whatwg.org/#fetch-api">Fetch</a>
+      </li>
+      <li><a href="https://www.w3.org/TR/webrtc/">WebRTC</a>, specifically as related to <a href="https://www.w3.org/TR/webrtc-nv-use-cases/#videoconferencing*">video conferencing with a central server</a>
+      </li>
+    </ul>
+    This work MAY proceed in parallel with higher priority work, provided there are group members actively engaged with it.
+    </p>
+    <h3 id="reports">
+      Non-Normative Reports
+    </h3>
+    <p>The group may produce other Community Group Reports within the scope of
+      this charter but that are not Specifications, for instance:
+      <ul>
+        <li>Use Cases document
+        </li>
+        <li>Primers
+        </li>
+        <li>Position statements
+        </li>
+        <li>Resources for evangelism (explanatory docs for different audiences, statistics-gathering)
+        </li>
+      </ul>
+    </p>
+    <p>In general, other documents related to in-scope multicast work are welcome.  If there are individuals who will commit to being editors for a document, the group should agree to accept it as a work item.
+    <!-- verbiage from https://www.w3.org/community/credentials/charter/  "work items" -->
+    </p>
+    <h3 id="test-suites">
+      Test Suites
+    </h3>
+    <p>
+    The group MAY produce test suites to support the Specifications. Any test suites produced by this group will be made available under <a href="https://github.com/web-platform-tests/wpt/blob/master/LICENSE.md">the same license as WPT</a>.
+    </p>
+    <!-- <p id="credentials-example"><span class="remove">TBD: consider initially adopting a process based on the <a href="https://docs.google.com/document/d/1vj811aUbs8GwZUNo-LIFBHafsz4rZTSnRtPv7RQaqNc">Credential Community Group Work Item Process</a> as linked from <a href="https://www.w3.org/community/credentials/charter/">their May 2020 charter</a>, else define an adoption process.</span>
+    </p> -->
+    <h2 id="liaisons">
+      Dependencies or Liaisons
+    </h2>
+    <p>Progress on any usage of multicast for web traffic will rely on progress on some IETF specifications, and group members will be encouraged to perform IETF reviews for these.  The list of these specifications is maintained at <span class="remove">TBD:URI</span>, to be updated as incubation proceeds according to group consensus.
+    </p>
+    <p>Progress on the specifications in phase 2 will depend on
+    interoperable open implementations of specifications for multicast-based
+    transport protocols, and the group
+    will need to consider the suitability of these protocols for addressing
+    the specific use cases covered by the target APIs, and to evaluate what
+    updates might be necessary to meet the requirements of the web security
+    model.  Several such candidate protocols exist, and the list of protocols
+    recommended for consideration is maintained at <span class="remove">TBD: URI</span>, to be updated as incubation proceeds according to group consensus.
+    </p>
+    <p>It's expected that implementations of the receive side of these
+    protocols on top of a secure WebTransport API can aid the success of
+    these evaluation efforts, which is a key motivator for the phased
+    approach outlined here.
+    </p>
+    <h3 id="w3c-groups">
+      W3C Groups
+    </h3>
+    <p>The Multicast Web Community Group will also liaise with the following W3C Working groups:
+
+    <ul>
+      <li><a href="https://www.w3.org/groups/wg/webtransport">W3C Web Transport Working Group</a>
+      </li>
+      <li><a href="https://www.w3.org/groups/wg/webrtc">W3C WebRTC Working Group</a>
+      </li>
+    </ul>
+    </p>
+    <p>The Multicast Web Community Group will also liaise with W3C Interest and Community groups with interests affected by multicast, including:
+    <ul>
+      <li><a href="https://www.w3.org/groups/ig/me">W3C Media & Entertainment Interest Group</a>
+      </li>
+      <li><a href="https://www.w3.org/groups/ig/web-networks">W3C Web & Networks Interest Group</a>
+      </li>
+      <li><a href="https://www.w3.org/community/webeco/">Web Ecology Community Group</a>
+      </li>
+      <li><a href="https://www.w3.org/community/wwca/">Web We Can Afford Community Group</a>
+      </li>
+    </ul>
+    <h3 id="external-groups">
+      External Groups
+    </h3>
+    <ul>
+      <li><a href="https://datatracker.ietf.org/wg/webtrans/about/">IETF WebTransport Deployment Working Group</a>
+      <li><a href="https://datatracker.ietf.org/wg/mboned/about/">IETF MBONE Deployment Working Group</a>
+      </li>
+      <li><a href="https://spec.whatwg.org/">WHATWG</a>, for the work in HTML and Fetch
+      </li>
+      <li>Other IETF working groups such as <a href="https://datatracker.ietf.org/wg/avtcore/about/">AVTCore</a> and <a href="https://datatracker.ietf.org/wg/mmusic/about/">MMUSIC</a> as needed to support the WebRTC work
+      </li>
+      <li><a href="https://web-platform-tests.org/">Web Platform Tests</a>
+      </li>
+    </ul>
+    </p>
+    <!-- TBD: later on after some success in specs also reach https://www.w3.org/community/webmediaapi/ as part of evangelism -->
+    <h2 id="process">
+      Community and Business Group Process
+    </h2>
+    <p>
+      The group operates under the <a href=
+      "https://www.w3.org/community/about/agreements/">Community and Business
+      Group Process</a>. Terms in this Charter that conflict with those of the
+      Community and Business Group Process are void.
+    </p>
+    <p>
+      As with other Community Groups, W3C seeks organizational licensing
+      commitments under the <a href=
+      'http://www.w3.org/community/about/agreements/cla/'>W3C Community
+      Contributor License Agreement (CLA)</a>. When people request to
+      participate without representing their organization's legal interests,
+      W3C will in general approve those requests for this group with the
+      following understanding: W3C will seek and expect an organizational
+      commitment under the CLA starting with the individual's first request to
+      make a contribution to a group <a href="#deliverables">Deliverable</a>.
+      The section on <a href="#contrib">Contribution Mechanics</a> describes
+      how W3C expects to monitor these contribution requests.
+    </p>
+
+    <p>
+      The <a href="https://www.w3.org/Consortium/cepc/">W3C Code of
+      Ethics and Professional Conduct</a> applies to participation in
+      this group.
+    </p>
+
+    <h2 id="worklimit">
+      Work Limited to Charter Scope
+    </h2>
+    <p>
+      The group will not publish Specifications on topics other than those
+      listed under <a href="#specifications">Specifications</a> above. See
+      below for <a href="#charter-change">how to modify the charter</a>.
+    </p>
+    <h2 id="contrib">
+      Contribution Mechanics
+    </h2>
+    <p>
+      Substantive Contributions to Specifications can only be made by Community
+      Group Participants who have agreed to the <a href=
+      "http://www.w3.org/community/about/agreements/cla/">W3C Community
+      Contributor License Agreement (CLA)</a>.
+    </p>
+    <p>
+      Specifications created in the Community Group must use the <a href=
+      "http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">
+      W3C Software and Document License</a>. All other documents produced by
+      the group should use that License where possible.
+    </p>
+    <p>
+      Community Group participants agree to make all contributions in the
+      GitHub repo the group is using for the particular document. This may be
+      in the form of a pull request (preferred), by raising an issue, or by
+      adding a comment to an existing issue.
+    </p>
+    <p id="githublicense">
+      All Github repositories attached to the Community Group must contain a
+      copy of the <a href=
+      "https://github.com/w3c/licenses/blob/master/CG-CONTRIBUTING.md">CONTRIBUTING</a>
+      and <a href=
+      "https://github.com/w3c/licenses/blob/master/CG-LICENSE.md">LICENSE</a>
+      files.
+    </p>
+    <h2 id="transparency">
+      Transparency
+    </h2>
+    <p>
+      The group will conduct all of its technical work in public. If the group
+      uses GitHub, all technical work will occur in its GitHub repositories
+      (and not in mailing list discussions). This is to ensure contributions
+      can be tracked through a software tool.
+    </p>
+    <p>
+      Meetings may be restricted to Community Group participants, but a public
+      summary or minutes must be posted to the group's public mailing list, or
+      to a GitHub issue if the group uses GitHub.
+    </p>
+    <h2 id="decision">
+      Decision Process
+    </h2>
+    <p>
+      This group will seek to make decisions where there is consensus. Groups
+      are free to decide how to make decisions (e.g. Participants who have
+      earned Committer status for a history of useful contributions assess
+      consensus, or the Chair assesses consensus, or where consensus isn't
+      clear there is a Call for Consensus [CfC] to allow multi-day online
+      feedback for a proposed course of action). It is expected that
+      participants can earn Committer status through a history of valuable
+      contributions as is common in open source projects. After discussion and
+      due consideration of different opinions, a decision should be publicly
+      recorded (where GitHub is used as the resolution of an Issue).
+    </p>
+    <p>
+      If substantial disagreement remains (e.g. the group is divided) and the
+      group needs to decide an Issue in order to continue to make progress, the
+      Committers will choose an alternative that had substantial support (with
+      a vote of Committers if necessary). Individuals who disagree with the
+      choice are strongly encouraged to take ownership of their objection by
+      taking ownership of an alternative fork. This is explicitly allowed (and
+      preferred to blocking progress) with a goal of letting implementation
+      experience inform which spec is ultimately chosen by the group to move
+      ahead with.
+    </p>
+    <p>
+      Any decisions reached at any meeting are tentative and should be recorded
+      in a GitHub Issue for groups that use GitHub and otherwise on the group's
+      public mail list. Any group participant may object to a decision reached
+      at an online or in-person meeting within 7 days of publication of the
+      decision provided that they include clear technical reasons for their
+      objection. The Chairs will facilitate discussion to try to resolve the
+      objection according to the <a href="#decision">decision process</a>.
+    </p>
+    <p>
+      It is the Chairs' responsibility to ensure that the decision process is
+      fair, respects the consensus of the CG, and does not unreasonably favour
+      or discriminate against any group participant or their employer.
+    </p>
+    <h2 id="chairs">
+      Chair Selection
+    </h2>
+    <p>
+      Participants in this group choose their Chair(s) and can replace their
+      Chair(s) at any time using whatever means they prefer. However, if 5
+      participants, no two from the same organisation, call for an election,
+      the group must use the following process to replace any current Chair(s)
+      with a new Chair, consulting the Community Development Lead on election
+      operations (e.g., voting infrastructure and using <a href=
+      "https://tools.ietf.org/html/rfc2777">RFC 2777</a>).
+    </p>
+    <ol>
+      <li>Participants announce their candidacies. Participants have 14 days to
+      announce their candidacies, but this period ends as soon as all
+      participants have announced their intentions. If there is only one
+      candidate, that person becomes the Chair. If there are two or more
+      candidates, there is a vote. Otherwise, nothing changes.
+      </li>
+      <li>Participants vote. Participants have 21 days to vote for a single
+      candidate, but this period ends as soon as all participants have voted.
+      The individual who receives the most votes, no two from the same
+      organisation, is elected chair. In case of a tie, RFC2777 is used to
+      break the tie. An elected Chair may appoint co-Chairs.
+      </li>
+    </ol>
+    <p>
+      Participants dissatisfied with the outcome of an election may ask the
+      Community Development Lead to intervene. The Community Development Lead,
+      after evaluating the election, may take any action including no action.
+    </p>
+    <h2 id="charter-change">
+      Amendments to this Charter
+    </h2>
+    <p>
+      The group can decide to work on a proposed amended charter, editing the
+      text using the <a href="#decision">Decision Process</a> described above.
+      The decision on whether to adopt the amended charter is made by
+      conducting a 30-day vote on the proposed new charter. The new charter, if
+      approved, takes effect on either the proposed date in the charter itself,
+      or 7 days after the result of the election is announced, whichever is
+      later. A new charter must receive 2/3 of the votes cast in the approval
+      vote to pass. The group may make simple corrections to the charter such
+      as deliverable dates by the simpler group decision process rather than
+      this charter amendment process. The group will use the amendment process
+      for any substantive changes to the goals, scope, deliverables, decision
+      process or rules for amending the charter.
+    </p>
+  </body>
+</html>
