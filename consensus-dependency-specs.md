@@ -5,7 +5,7 @@ This is a list of IETF specifications that are considered likely-necessary under
 # Specifications
 
  - [DORMS](https://datatracker.ietf.org/doc/html/draft-ietf-mboned-dorms)
- - [AMBBI](https://datatracker.ietf.org/doc/html/draft-ietf-mboned-ambi)
+ - [AMBI](https://datatracker.ietf.org/doc/html/draft-ietf-mboned-ambi)
  - Possibly [CBACC](https://datatracker.ietf.org/doc/html/draft-ietf-mboned-cbacc)
  - Possibly [MNAT](https://datatracker.ietf.org/doc/html/draft-ietf-mboned-mnat)
  - At least one multicast-specific web security considerations document ([a likely starting point](https://github.com/squarooticus/draft-krose-multicast-security) is begun, loosely modeled on the [WebRTC Security Considerations (RFC 8826)](https://www.rfc-editor.org/rfc/rfc8826.html))
