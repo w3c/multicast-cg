@@ -38,14 +38,14 @@ Possibly important items for consideration:
    * Needs authentication ([AMBI](https://datatracker.ietf.org/doc/draft-ietf-mboned-ambi/))
    * Probably needs batched payload transfer (or more generally a performance pass)
    * Needs automated tests in the build process
-    * with coverage reports
-    * with fuzzing
+     * with coverage reports
+     * with fuzzing
    * May need MNAT support
  * [libmcrx](https://github.com/GrumpyOldTroll/libmcrx) (used by chromium implementation)
    * Needs implementations for:
-    * Windows
-    * Android
-    * IOS
+     * Windows
+     * Android
+     * IOS
    * Needs packaging for distros
    * Needs test suite with coverage checking
  * Port to more browsers besides Chromium:
@@ -73,8 +73,10 @@ Possibly important items for consideration:
 ## Useful resources
 
  * Evangelization/enabling docs
-  * Case studies, ROI/cost analyses
-  * Notes about devices
+   * Case studies
+   * ROI/cost analyses
+   * Efficiency/savings modeling
+ * Notes about devices
    * Gotchas encountered (with model & version, ideally)
    * Confirmed-good reports (with sample configs, ideally)
    * Vendor statements
