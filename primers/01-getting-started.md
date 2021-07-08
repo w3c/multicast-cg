@@ -26,7 +26,7 @@ sudo apt remove chromium-browser-mc-unstable
 
 ## How to Build (optional)
 
-If you want to build the installer yourself instead of downloading the binary.  You need plenty of RAM and disk space (at least ~8 and ~100 GBB respectively in 2021-06, but it may grow).  It takes something like 10 hours.
+If you want to build the installer yourself instead of downloading the binary.  You need plenty of RAM and disk space (at least ~8 and ~100 GB respectively in 2021-06, but it may grow).  It takes something like 10 hours.
 
 ### Ubuntu/Debian
 
@@ -64,7 +64,7 @@ If you have a preference or you're aiming for something specific, several others
 
 Also setting 'KEEP' to anything besides 0 will keep the instance alive afterwards (this will have [extra costs](https://aws.amazon.com/ec2/pricing/on-demand/) and you'll need to manually clean it up).
 
-Note also that manual cleanup may be needed if anything goes wrong.
+Note also that manual cleanup may be needed if anything goes wrong.  This should make a single instance of INSTTYPE (default=c5.2xlarge) in REGION (default=us-west-1) and a single security group named `cbuild-sg-<timestamp>.
 
 ~~~
 curl -O https://github.com/GrumpyOldTroll/chromium_fork/blob/main/aws-build.sh
@@ -151,11 +151,31 @@ SRC=10.20.20.1
 ./mcrx-check -s ${SRC} -g 232.2.2.2 -p 6000 -c 50 -d 0 -v
 ~~~
 
+### Other Senders
+
+In addition or instead of running `send.py` or similar test traffic, it's also possible to run video traffic that can be consumed by [VLC](https://www.videolan.org/) and probably [ffmpeg](https://www.ffmpeg.org/).
+
+~~~
+vlc -vvv ./vid.mp4 --sout '#udp{dst=232.3.3.3,port=5004,mux=ts}' --ttl 15 --loop --file-caching 10000
+~~~
+
+~~~
+ffmpeg -re -i vid.mp4 -c copy -f mpegts udp://232.10.10.2:12000?pkt_size=1316
+~~~
+
 ## Tunneling a Remote Sender
+
+These instructions are to sort of manually set up the network to tunnel the external multicast traffic into the local machine.
+
+It's possible to set this all up externally.  Ideally your network will be the one that does this, in which case you have nothing to do here, your browser can just receive the traffic.
+
+But until your network gets to that, you can still tunnel the traffic in yourself.
+
+For advanced and persistent setup, you can stand up a multicast-capable network that does the ingest for you.  There are instructions in the [multicast-ingest-platform](https://github.com/GrumpyOldTroll/multicast-ingest-platform/blob/master/sample-network/README.md) repo.  The sections below describe how to do the same thing manually for your local machine.
 
 ### Internet2 Sources
 
-Internet2 has several public relays running.  To connect to one of the relays, run an AMT gateway instance:
+Internet2 has several public relays running.  To connect to one of the relays, run an [AMT](https://www.rfc-editor.org/rfc/rfc7450.html) gateway instance:
 
 ~~~
 AMTIP=$(dig +short amt-relay.m2icast.net | head -n 1)
@@ -173,6 +193,38 @@ PORT=1234
 ~~~
 
 You also need the source to be routed via the gateway so the join will go in that direction:
+
+~~~
+sudo ip route add ${SRC}/32 dev docker0
+~~~
+
+At this point receiving should work with the steps in the "[Receiving Traffic](#receiving-traffic)" section, e.g. on the [demo page](https://grumpyoldtroll.github.io/wicg-multicast-receiver-api/demo-multicast-receive-api.html) or with `mcrx-check`:
+
+~~~
+./mcrx-check -s ${SRC} -g ${GRP} -p ${PORT} -c 50 -d 0 -v
+~~~
+
+### DRIAD Sources
+
+There are several sources that are publicly reachable whose relays are discoverable with [DRIAD](https://www.rfc-editor.org/rfc/rfc8777.html).
+
+You can pull in traffic from those by discovering the relay and setting the route for the source of the (S,G) to go through the docker interface:
+
+~~~
+SRC=23.212.185.14
+GRP=232.1.1.1
+PORT=5001
+~~~
+
+Setting up the docker container needs to do a DRIAD lookup:
+
+~~~
+curl -O https://raw.githubusercontent.com/GrumpyOldTroll/libmcrx/master/driad.py
+AMTIP=$(python3 driad ${SRCIP})
+sudo docker run -d --rm --name amtgw --privileged grumpyoldtroll/amtgw ${AMTIP}
+~~~
+
+And you need the source IP routed to the docker container:
 
 ~~~
 sudo ip route add ${SRC}/32 dev docker0
