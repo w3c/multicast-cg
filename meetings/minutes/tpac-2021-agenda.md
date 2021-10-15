@@ -6,9 +6,9 @@
  3. Next Steps: discuss briefly & schedule working sessions (25 mins)
     1. QUIC with multicast (https://datatracker.ietf.org/doc/html/draft-pardue-quic-http-mcast)
        1. Get basic functionality demo running (no browser) with <https://github.com/bbc/nghq>
-       2. Also look into the webtransport implementation, which has datagrams. See about hacking in multicast like nghq did?
-       3. Once something works, get it in browser.
-          1. datagrams+webtransport better match to existing api?  nghq better match for xhr?
+       2. Also look into the latest [webtransport implementation](https://github.com/web-platform-tests/wpt/tree/master/tools/webtransport/h3), which has datagrams. See about hacking in multicast like nghq did?
+       3. Once something works, get it running in browser.
+          1. datagrams+webtransport better match to existing api?  nghq's object approach better match for xhr, I think.  Any others?
        4. Look into addding AMBI to quic-http-mcast (<https://datatracker.ietf.org/doc/html/draft-ietf-mboned-ambi>)
     2. Anyone know anyone willing who hasn't chimed in on IETEF secdispatch support for work on <https://datatracker.ietf.org/doc/html/draft-krose-multicast-security>?
     3. IETF hackathon to play VLC mcast streams from internet2 in browser demo.  Thread: <https://lists.geant.org/sympa/arc/multicast-discuss/2021-10/msg00000.html>
