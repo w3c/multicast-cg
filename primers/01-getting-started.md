@@ -310,5 +310,29 @@ sudo tcpdump -n -vv icmp6 and ip[40]==128
 
 (NB: seeing some trouble in ubuntu 20.04, MLD apparently not going out.)
 
-If you're seeing packets in tcpdump but not in the packet count, the first thing to check is whether the destination UDP port matches what the receiver is listening to.  After that it gets trickier.
+## Known Things to Check
+
+### Is the Port Correct?
+
+If you're seeing packets in tcpdump but not in the packet count, the first thing to check is whether the destination UDP port matches what the receiver is listening to.
+
+### Is a Firewall Blocking?
+
+In some setups we've seen firewall rules blocking the forwarding of traffic.
+
+The symptom here is that native multicast arrives on the expected interface (for example, docker0), but is not received by the receiver.
+
+Running `dmesg` in this case would show lines that look something like this:
+
+~~~
+[5370076.311276] [UFW BLOCK] IN=docker0 OUT= PHYSIN=vethc1cd9d5 MAC=01:00:5e:00:00:01:02:42:ac:11:00:02:08:00 SRC=172.17.0.2 DST=224.0.0.1 LEN=36 TOS=0x00 PREC=0x00 TTL=1 ID=0 DF PROTO=2 
+~~~
+
+The workaround is to add an allow rule:
+
+~~~
+sudo ufw allow in proto udp to 224.0.0.0/4
+~~~
+
+This may require restarting the receiver and/or the gateway.
 
