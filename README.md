@@ -6,6 +6,7 @@ See also the following resources:
 
 * [Home Page](https://www.w3.org/community/multicast/)
 * [Multicast Community Group Charter](https://w3c.github.io/multicast-cg/multicast-cg-charter.html)
+* [Public Mailing List archive](https://lists.w3.org/Archives/Public/public-multicast/)
 
 With a (free) W3C account login, you can join the community group at [https://www.w3.org/groups/cg/multicast](https://www.w3.org/groups/cg/multicast).
 
