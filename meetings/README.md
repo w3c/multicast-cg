@@ -1,5 +1,8 @@
 # Meeting Log
 
+* 2022-03-02: [minutes](https://docs.google.com/document/d/1dcvvcHm59bqO5QWP-sfjclW6HhdPQt9L9g0UNJfUKR8/), [video](https://www.youtube.com/watch?v=Kc3an8kUfK0)
+* (2022 February meeting cancelled, [announcement](https://lists.w3.org/Archives/Public/public-multicast/2022Feb/0000.html))
+* 2022-01-07: [minutes](https://docs.google.com/document/d/1hhtgQVjy73FTWP4AIZA_F3C2Pkqtc0Sy_NG2ebwy-fU), [video](https://www.youtube.com/watch?v=StMuMXMRYxQ)
 * 2021-12-01: [minutes](https://www.w3.org/2021/12/01-multicast-minutes.html)/[minutes-raw](minutes/minutes-2021-12-01.md), [video](https://youtu.be/nVUO28amBT4)
 * 2021-10-27 (TPAC 2021): [minutes](https://www.w3.org/2021/10/27-multicast-minutes.html) (or the [captured text](minutes/minutes-2021-10-27-tpac.md) in case of availability issues), [video](https://www.youtube.com/watch?v=VV4gbOczhkU), [slides](https://docs.google.com/presentation/d/1YAFs3Pif0o2e3hLdFbEnpm0iAC8NBPXuDBZKi2FTO6A)
 * 2021-10-06: [minutes](minutes/minutes-2021-10-06.md), [video](https://youtu.be/ukm0bzwDEno)
