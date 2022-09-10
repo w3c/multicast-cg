@@ -1,5 +1,7 @@
 # Meeting Log
 
+* 2022-09-07: [minutes](https://docs.google.com/document/d/1DoQc49twZk9OZeTJEryI1ZBRAkXIy4Nud6lxgaRMb4E), [video](https://youtu.be/d939HLoIhYs)
+* 2022-08-02: [minutes](https://docs.google.com/document/d/1vop1sEctzAGANR6zG37_6QxnUuP-z3R6-LdWXIQ-yfk), [video](https://youtu.be/ShVX7_jacyY)
 * 2022-07-06: [minutes](https://docs.google.com/document/d/1aGyLFiaIuwlcvRGueVKsPmpF1EYVAKSJHf8usxfQvoE), [video](https://youtu.be/3EgWETPIx1M)
 * 2022-06-01: [minutes](https://docs.google.com/document/d/1eFGd6EU3Uv2Vnqdq2QxlCOhcGKdxwdfIJbMUF3KlVGo), [video](https://youtu.be/0FIfsH6DgX8)
 * 2022-05-04: [minutes](https://docs.google.com/document/d/1eoGvNcbh26wUPEGZOHJWzd4Y1gKZIAUx3_0NWaghNwg), [video](https://youtu.be/ctHGeIU_WkU)
